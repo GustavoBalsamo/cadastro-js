@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@700&display=swap');
+
+header{
+    padding-top: 26px;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    background: url(img/cafe.jpg);
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.login{
+    width: 528px;
+    height: 599px;
+    background: #b68564;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 18px;
+    border-radius: 42px;
+    border: 3px solid #522017;
+}
+
+span{
+    width: 206px;
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-indent: 1px;
+    color: #391f07;
+    padding-left: 31px;
+}
+
+.container form{
+    width: 317px;
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;    
+    color: #431909;
+}
+/*botao caso estiver tudo certo no cadastro*/
+button:enabled{
+    transition-delay: 0.1s;
+    width: 316px;
+    height: 52px;
+    background: #26c240;
+    border: 3px solid #522017;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffffff;
+    margin-top: 13px;
+    
+}
+/*botao começa desabilitado*/
+button:disabled{
+    width: 316px;
+    height: 52px;
+    background: #3b3434;
+    border: 3px solid #3d3c3c;
+    border-radius: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: black;
+    margin-top: 13px;
+    
+} 
+
+.altera_cor input{
+    width: 307px;
+    height: 52px;
+    background: #eed1be;
+    border: 3px solid #6a391a;
+    border-radius: 7px;
+}
+
+/*warning só aparece em caso de erro*/
+.altera_cor small{
+    visibility: hidden;
+    font-family: 'Poppins';
+}
+
+
+/* CSS verde*/
+.altera_cor.success input{
+ border: 3px solid #096619;
+}
+
+
+ /* CSS vermelho*/
+.altera_cor.error input{
+    border: 3px solid #c32300;
+}
+
+.altera_cor.error small{
+    visibility: visible;
+    color :#9c2a16;
+}
