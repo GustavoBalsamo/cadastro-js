@@ -12,24 +12,24 @@
         <div class="login">
             <header>
                 <span>Cadastre-se</span>
-            <header>
+            </header>
             <form id="form" class="form" >
-                <div class="altera_cor ">
+                <div id="div1"class="altera_cor ">
                     <label for="usuario">Usuário</label>
                     <input type="text" name="usuario" id="usuario" onchange="muda_botao()" onfocusout="muda_usuario(usuario.value.trim())">
                     <small>erro</small>
                 </div>
-                <div class="altera_cor ">
+                <div id="div2"class="altera_cor ">
                     <label for="Email">Email</label>
-                    <input type="email" name="Email" id="email" onchange="muda_botao()" onfocusout="muda_email(email.value.trim())">
+                    <input name="Email" id="email" onchange="muda_botao()" onfocusout="muda_email(email.value.trim())">
                     <small>erro</small>
                 </div>
-                <div class="altera_cor">
+                <div id="div3"class="altera_cor">
                     <label for="Senha">Senha</label>
                     <input type="password" name="Senha" id="senha" onchange="muda_botao()" onfocusout="muda_senha(senha.value.trim())">
                     <small>erro</small>
                 </div>
-                <div class="altera_cor">
+                <div id="div4"class="altera_cor">
                     <label for="Confirmação de Senha">Confirmação de Senha</label>
                     <input type="password" name="Confirmação" id="confirmacao" onchange="muda_botao()" onfocusout="muda_confirmacao(confirmacao.value.trim(), senha.value.trim())">
                     <small>erro</small>

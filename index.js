@@ -6,38 +6,28 @@ const senha = document.getElementById('senha');
 const confirmacao = document.getElementById('confirmacao');
 const botao = document.getElementById('botao');
 
+const div1 = document.getElementById('div1');
+const div2 = document.getElementById('div2');
+const div3 = document.getElementById('div3');
+const div4 = document.getElementById('div4');
 //coloca trim nos inputs, pra ignorar os espaços
 const input_usuario = usuario.value.trim();
 const input_email = email.value.trim();
 const input_senha = senha.value.trim();
 const input_confirmacao = confirmacao.value.trim();
-let i = 0;
 
 
 
-//usa addEventListener pra ocorrer o processo do cadastro
-form.addEventListener('submit', (e) =>{
-    e.preventDefault();
-    muda_botao(input_usuario,input_email,input_senha,input_confirmacao,botao);
+
+
+
     muda_usuario(input_usuario);
     muda_email(input_email);
     muda_senha(input_senha);
     muda_confirmacao(input_confirmacao,input_senha);
+    muda_botao();
 
-    
-})
-function muda_botao(){
-    //se todos os inputs tiver algo, botão ativa.
 
-    if(i >= 3){
-        botao.disabled = false;
-        return; 
-    }
-    else{
-    botao.disabled = true;
-    }
-
-}
 function muda_usuario(input_usuario){
 
     //se o espaço estiver em branco
@@ -48,12 +38,12 @@ function muda_usuario(input_usuario){
     //determina um tamanho x pro tamanho do usuário
     else if(input_usuario.length < 5 || input_usuario.length > 15 ){
         input_vermelho(usuario,'nome maior que 5 e menor que 15 letras');
-        i--;
+      
     }
     //muda o css pro padrão verde se estiver tudo Ok
     else{
         input_verde(usuario);
-        i++;
+       
         
     }
    
@@ -69,12 +59,12 @@ function muda_email(input_email){
      //se o input for igual ao padrão de email(usei regxr) usa o css padrão verde
     else if (input_email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
         input_verde(email);
-        i++;
+       
     }
     //senão, pinta de vermelho e mostra a mensagem
     else{
         input_vermelho(email,'o email deve seguir o padrão');
-        i--;
+       
     }
 
 }
@@ -88,12 +78,12 @@ function muda_senha(input_senha){
     //define o padrão: a senha deve ser maior que 12 caracteres
     else if(input_senha.length < 12){
         input_vermelho(senha, 'A senha deve conter 12 letras');
-        i--;
+       
     } 
     //se estiver tudo certo, pinta de verde
     else{
         input_verde(senha);
-        i++;
+        
     }
 }
     //recebe 2 constantes como parâmetro, pois irá comparar as duas
@@ -107,12 +97,12 @@ function muda_confirmacao(input_confirmacao,input_senha){
     //se as senhas forem diferentes, pinta de vermelho e mostra a mensagem
     else if(input_confirmacao !== input_senha){
         input_vermelho(confirmacao, 'As senhas devem ser iguais');
-        i--;
+        
     }
     //se estiver tudo ok, pinta de verde.
     else{
         input_verde(confirmacao);
-        i++;
+       
     }
 
 }
@@ -137,4 +127,25 @@ function input_vermelho(input, message){
 function input_verde(input){
     const pega_div = input.parentElement;
     pega_div.className = 'altera_cor success';
+}
+
+function muda_botao(){
+    //se todos os inputs tiver algo, botão ativa.
+    //console.log(div1.className);
+    //console.log(div2.className);
+    console.log(div3.className);
+    //console.log(div4.className);
+    
+    if(div1.className === "altera_cor success" && div2.className === "altera_cor success" 
+    && div3.className === "altera_cor success" && div4.className === "altera_cor success"){
+        botao.disabled = false;
+        
+        
+    }
+    else if(div1.className === "altera_cor error" || div2.className || "altera_cor error" 
+    && div3.className === "altera_cor error" || div4.className === "altera_cor error"){
+        botao.disabled = true;
+    }
+
+
 }
