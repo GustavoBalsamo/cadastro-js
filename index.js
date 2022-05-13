@@ -10,22 +10,28 @@ const div1 = document.getElementById('div1');
 const div2 = document.getElementById('div2');
 const div3 = document.getElementById('div3');
 const div4 = document.getElementById('div4');
+
 //coloca trim nos inputs, pra ignorar os espaços
 const input_usuario = usuario.value.trim();
 const input_email = email.value.trim();
 const input_senha = senha.value.trim();
 const input_confirmacao = confirmacao.value.trim();
 
+let guarda_usuario = [];
+let guarda_email = [];
 
 
+//aqui é onde o código ta rodando
 
-
-
+    form.addEventListener('submit', (e) =>{
     muda_usuario(input_usuario);
     muda_email(input_email);
     muda_senha(input_senha);
     muda_confirmacao(input_confirmacao,input_senha);
     muda_botao();
+    teste();
+    })
+
 
 
 function muda_usuario(input_usuario){
@@ -129,23 +135,56 @@ function input_verde(input){
     pega_div.className = 'altera_cor success';
 }
 
+//se todos os inputs tiver algo, botão ativa.
 function muda_botao(){
-    //se todos os inputs tiver algo, botão ativa.
-    //console.log(div1.className);
-    //console.log(div2.className);
-    console.log(div3.className);
-    //console.log(div4.className);
     
     if(div1.className === "altera_cor success" && div2.className === "altera_cor success" 
     && div3.className === "altera_cor success" && div4.className === "altera_cor success"){
+
         botao.disabled = false;
-        
         
     }
     else if(div1.className === "altera_cor error" || div2.className || "altera_cor error" 
     && div3.className === "altera_cor error" || div4.className === "altera_cor error"){
+
         botao.disabled = true;
+        
     }
 
 
+}
+function teste(){
+    const foundName = false;
+    const foundEmail = false;
+for (let i = 0; i< guarda_usuario.lenght; i++){
+    if(input_usuario == guarda_usuario[i]){
+        foundName = true;
+        break;
+    } 
+    
+    
+}
+
+for (let i = 0; i< guarda_email.lenght; i++){
+    if(input_email == guarda_email[i]){
+        foundEmail = true;
+        break;
+    } 
+    
+}
+if(foundName || foundEmail){
+
+    if(foundName){
+        input_vermelho(usuario,'usuario já registrado');
+            }
+
+    if(foundEmail){
+        input_vermelho(email,'email já registrado');
+            }
+}
+else{
+    alert('usuário cadastrado com sucesso');
+    guarda_email.push(email);
+    guarda_usuario.push(usuario);
+}
 }
